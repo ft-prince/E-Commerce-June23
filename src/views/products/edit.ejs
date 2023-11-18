@@ -1,0 +1,54 @@
+<% layout('layout/boilerplate') -%>
+
+  <div class="row mt-3">
+    <div class="col-8 offset-2">
+      <h3>Edit your Product</h3>
+      <form
+        method="POST"
+        action="/products/<%= product._id %>?_method=PUT"
+        novalidate
+        class="needs-validation">
+        <div class="mb-3">
+          <label for="title " class="form-label">Name</label>
+          <input
+            name="product[name]"
+            value="<%= product.name %>"
+            type="text"
+            class="form-control"
+            required />
+        </div>
+
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <textarea name="product[desc]" class="form-control" required>
+<%= product.desc %></textarea  
+          >
+        </div>
+        <div class="mb-3">
+          <label for="image" class="form-label">Image</label>
+          <input
+            name="product[imageUrl]"
+            class="form-control"
+            value="<%= product.imageUrl %>"
+            required
+            type="text" />
+          <div class="invalid-feedback">Price Should be vaild number</div>
+        </div>
+
+        <div class="row">
+          <div class="mb-3 col-md-4">
+            <label for="price" class="form-label">Price</label>
+            <input
+              name="product[price]"
+              class="form-control"
+              required
+              value="<%= product.price %>"
+              type="number" />
+          </div>
+
+        <button class="btn btn-dark edit-btn mt-3">Edit</button>
+        <br />
+        <br />
+      </form>
+    </div>
+  </div>

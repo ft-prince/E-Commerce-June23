@@ -51,4 +51,5 @@ async function seedProducts() {
   console.log('db seeded');
 }
 
-module.exports = seedProducts;
+// seedProducts();  
+module.exports = seedProducts();
